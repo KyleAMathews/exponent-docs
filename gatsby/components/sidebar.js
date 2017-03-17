@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import { rhythm } from 'utils/typography';
-import { presets } from 'glamor';
+import presets from 'glamor-media-query-presets';
 
 class Sidebar extends React.Component {
   render() {
@@ -24,14 +24,16 @@ class Sidebar extends React.Component {
           fontWeight: `normal`,
           marginBottom: rhythm(1 / 2),
           marginTop: i === 0 ? 0 : rhythm(1.25), // Except for the first header
-        }}>
+        }}
+      >
         <Link
           activeClassName="current"
           css={{ color: 'inherit' }}
           activeStyle={{
             color: `rgba(0,0,0,0.40)`,
           }}
-          to={link}>
+          to={link}
+        >
           {children}
         </Link>
       </h3>
@@ -43,7 +45,8 @@ class Sidebar extends React.Component {
           listStyle: `none`,
           marginBottom: 0,
           marginLeft: 0,
-        }}>
+        }}
+      >
         {children}
       </ul>
     );
@@ -75,7 +78,8 @@ class Sidebar extends React.Component {
               paddingLeft: 0, // For desktop, let main wrapper take care
               // of padding on left.
             },
-          }}>
+          }}
+        >
           {/* Show the version switcher on mobile */}
           <select
             value={this.props.activeVersion}
@@ -92,7 +96,8 @@ class Sidebar extends React.Component {
               [presets.Tablet]: {
                 display: `none`,
               },
-            }}>
+            }}
+          >
             {this.props.versions.map(version => {
               return (
                 <option key={version} value={version}>

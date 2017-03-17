@@ -14,7 +14,7 @@ const scale = typography.scale;
 import 'css/prism-coy.css';
 import { ScrollContainer } from 'react-router-scroll';
 import MenuIcon from 'react-icons/lib/md/menu';
-import { presets } from 'glamor';
+import presets from 'glamor-media-query-presets';
 import Helmet from 'react-helmet';
 import ArrowIcon from 'react-icons/lib/md/keyboard-arrow-down';
 import logoText from 'images/logo-text.svg';
@@ -139,7 +139,8 @@ class Wrapper extends React.Component {
 
         <Drawer
           open={this.state.sidebarOpen}
-          onChange={open => this.setState({ sidebarOpen: open })}>
+          onChange={open => this.setState({ sidebarOpen: open })}
+        >
           <div onClick={() => this.setState({ sidebarOpen: false })}>
             <SidebarContent
               id="mobile-sidebar"
@@ -172,7 +173,8 @@ class Wrapper extends React.Component {
                 paddingTop: rhythm(2.5),
                 paddingRight: rhythm(2.5),
               },
-            }}>
+            }}
+          >
             <SidebarContent
               id="sidebar"
               activeRoutes={this.state.activeRoutes}
@@ -201,13 +203,15 @@ class Wrapper extends React.Component {
                   display: `block`,
                   paddingLeft: rhythm(11.7),
                 },
-              }}>
+              }}
+            >
               {this.props.children}
               <p
                 css={{
                   textAlign: `center`,
                   marginBottom: rhythm(1 / 2),
-                }}>
+                }}
+              >
                 © Copyright{' '}
                 {new Date().getFullYear()}
                 , Expo.
@@ -229,7 +233,8 @@ class Wrapper extends React.Component {
             [presets.Tablet]: {
               display: `none`,
             },
-          }}>
+          }}
+        >
           <div
             onClick={() =>
               this.setState({ sidebarOpen: !this.state.sidebarOpen })}
@@ -238,7 +243,8 @@ class Wrapper extends React.Component {
               paddingLeft: rhythm(1 / 3),
               paddingRight: 12,
               paddingTop: 8,
-            }}>
+            }}
+          >
             <MenuIcon
               css={{
                 fontSize: rhythm(5 / 3),
