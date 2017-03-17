@@ -1,15 +1,15 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
-import get from 'lodash/get';
+import React from "react";
+import Helmet from "react-helmet";
+import Link from "gatsby-link";
+import get from "lodash/get";
 
 function initializeEmbeds() {
   if (window.ExpoSketch) {
     window.ExpoSketch.initialize();
   } else {
-    let scriptEl = document.createElement('script');
+    let scriptEl = document.createElement("script");
     scriptEl.async = true;
-    scriptEl.type = 'text/javascript';
+    scriptEl.type = "text/javascript";
     scriptEl.src = `https://sketch.expo.io/embed.js`;
     document.body.appendChild(scriptEl);
   }
@@ -36,6 +36,16 @@ class DocsPage extends React.Component {
         <h1>{post.frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
+        <p
+          css={{
+            textAlign: `center`,
+            marginBottom: rhythm(1 / 2),
+          }}
+        >
+          © Copyright{" "}
+          {new Date().getFullYear()}
+          , Expo.
+        </p>
       </div>
     );
   }
