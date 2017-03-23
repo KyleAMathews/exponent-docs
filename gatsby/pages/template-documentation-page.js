@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 import Link from "gatsby-link";
 import get from "lodash/get";
 
+import { rhythm } from "../utils/typography";
+
 function initializeEmbeds() {
   if (window.ExpoSketch) {
     window.ExpoSketch.initialize();
